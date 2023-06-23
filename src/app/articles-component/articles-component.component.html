@@ -1,0 +1,19 @@
+<h1>EXERCICE 2</h1>
+
+<h3>{{titre}}</h3>
+
+<input [defaultValue]="listeArticles.length" [(ngModel)]="nbArticles" (change)="displayArticles(nbArticles)">
+
+<div *ngFor="let a of listeArticles;let indexOfElement=index">
+<div *ngIf="indexOfElement < nbArticles">
+  <fieldset *ngIf="a.categorie != 'Travail'" style="border: black 2px solid;padding: 5px;margin: 15px;width: 50%;"
+            [ngStyle]="{'backgroundColor':a.categorie == 'Education' ? '#0080FF80' :'transparent'}">
+    <legend>{{a.titre}}</legend>
+
+    <p>AUTEUR : {{a.auteur}} </p>
+    <p>DATE : {{a.date}} </p>
+    <p>CONTENU : {{a.contenu}} </p>
+
+  </fieldset>
+</div>
+</div>

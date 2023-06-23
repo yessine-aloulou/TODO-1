@@ -1,0 +1,21 @@
+
+<h1>EXERCICE 1</h1>
+
+<input type="text" [(ngModel)]="search" (change)="searchByCompany(search)">
+
+<div *ngFor="let e of listeEmploi">
+<div *ngIf="e.entreprise.toUpperCase() == search.toUpperCase() || search=='' ">
+      <span>
+        {{e.reference}}
+        {{e.titre}}
+        {{e.entreprise}}
+    </span>
+  <button [disabled]="!e.etat">Postuler</button>
+</div>
+</div>
+
+<div>
+  <button (click)="calNonCloture(listeEmploi)" >BILAN</button>
+  <h1 *ngIf="nbEmploiNonCloture">{{nbEmploiNonCloture}}</h1>
+
+</div>
